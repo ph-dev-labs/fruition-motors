@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { FaCar, FaTruck, FaBolt, FaMotorcycle, FaBus, FaBicycle, } from 'react-icons/fa';
 import { useQuery } from '@tanstack/react-query';
 import Loader from './loader';
-import axiosInstance from '../libs/axios';
+import axios from '../libs/axios';
 
 const CategoryList = () => {
   const {
@@ -13,12 +13,12 @@ const CategoryList = () => {
   } = useQuery({
     queryKey: ["allCategories"],
     queryFn: async () => {
-      const response = await axiosInstance.get("/getCategory");
+      const response = await axios.get("/getCategory");
       return response?.data.category; // Ensure this matches your API response structure
     },
   });
 
-  console.log(data);
+  
 
   if (catLoading) {
     return <Loader />;

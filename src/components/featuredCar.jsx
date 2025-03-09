@@ -1,14 +1,16 @@
 "use client"
 import { useState } from 'react';
 import CarCard from './carCard';
-import { cars } from '../utils/carData';
 
-const FeaturedCars = () => {
+
+const FeaturedCars = ({cars}) => {
   const [visibleCars, setVisibleCars] = useState(4);
   
   const loadMore = () => {
     setVisibleCars(prev => Math.min(prev + 4, cars.length));
   };
+
+  console.log(cars)
 
   return (
     <section className="py-12 bg-gray-50">

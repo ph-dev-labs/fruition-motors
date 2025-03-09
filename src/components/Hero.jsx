@@ -32,16 +32,16 @@ const Hero = () => {
         />
       ))}
       
-      {/* Dark overlay */}
-      <div className="absolute inset-0  bg-opacity-50"></div>
+      {/* Dark overlay - Modified to be more transparent */}
+      <div className="absolute inset-0  bg-opacity-10"></div>
       
       {/* Content */}
       <div className="relative z-10 h-full flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-shadow-md">
             Find Your Dream Car
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-2xl">
+          <p className="text-xl md:text-2xl mb-8 max-w-2xl text-shadow-sm">
             Explore our extensive collection of premium vehicles and drive home your perfect match today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
@@ -49,7 +49,7 @@ const Hero = () => {
               Browse Categories
               <FaChevronRight className="ml-2" />
             </Link>
-            <Link href="/about" className="bg-black  hover:bg-gray-100 font-medium py-3 px-6 rounded-full inline-flex items-center transition-colors">
+            <Link href="/about-us" className="bg-black text-primary hover:bg-gray-100 font-medium py-3 px-6 rounded-full inline-flex items-center transition-colors">
               Learn More
             </Link>
           </div>

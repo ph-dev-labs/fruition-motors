@@ -1,13 +1,14 @@
 "use client"
-import { useCars } from '../../hooks/useGetCars';
+import { useCars, useGetFeaturedListing } from '../../hooks/useGetCars';
 import Hero from '../../components/Hero';
 import FeaturedCars from '../../components/featuredCar';
 import Link from 'next/link';
 import { FaArrowRight, FaCheckCircle, FaCar } from 'react-icons/fa';
 import Loader from '../../components/loader';
+import Layout from '../../components/layout';
 
 export default function HomePage() {
-  const {data, isLoading ,isError, error} = useCars()
+  const {data, isLoading ,isError, error} = useGetFeaturedListing()
   console.log(data)
 
   if (isLoading) {
@@ -21,12 +22,12 @@ export default function HomePage() {
 
   
   return (
-    <>
+    <Layout>
       {/* Hero Section */}
       <Hero />
       
       {/* Featured Cars Section */}
-      <FeaturedCars />
+      <FeaturedCars cars={data.cars} />
       
       {/* Why Choose Us Section */}
       <section className="py-16 bg-white">
@@ -87,6 +88,6 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
-    </>
+    </Layout>
   );
 }

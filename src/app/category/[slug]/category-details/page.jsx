@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { FaArrowLeft } from 'react-icons/fa';
 import Loader from '../../../../components/loader';
 import { useParams } from 'next/navigation';
+import Layout from '../../../../components/layout';
 import { useGetCarsByCategory } from '../../../../hooks/useGetCars'; // Adjust the import based on your project structure
 
 export default function CategoryDetail() {
@@ -45,7 +46,7 @@ export default function CategoryDetail() {
   }
 
   return (
-    <>
+    <Layout>
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
@@ -78,6 +79,6 @@ export default function CategoryDetail() {
           )}
         </div>
       </section>
-    </>
+    </Layout>
   );
 }

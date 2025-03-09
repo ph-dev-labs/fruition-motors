@@ -5,6 +5,7 @@ import { FaGasPump, FaCog, FaCalendarAlt, FaChair } from 'react-icons/fa';
 import { formatPrice } from '../utils/carData';
 
 const CarCard = ({ car }) => {
+
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
       <div className="relative h-48 overflow-hidden">

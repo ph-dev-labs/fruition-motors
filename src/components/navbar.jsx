@@ -1,10 +1,37 @@
 'use client'
 import { useState } from 'react';
 import Link from 'next/link';
-import { FaSearch, FaBars, FaTimes } from 'react-icons/fa';
+import { FaSearch, FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
+import { useQuery } from '@tanstack/react-query';
+import Loader from './loader';
+import axiosInstance from '../libs/axios';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const {
+    data,
+    isLoading: catLoading,
+    error: catError,
+  } = useQuery({
+    queryKey: ["allCategories"],
+    queryFn: async () => {
+      const response = await axiosInstance.get("/getCategory");
+      return response?.data.category; // Ensure this matches your API response structure
+    },
+  });
+
+  if (catLoading) {
+    return <Loader />;
+  }
+
+  if (catError) {
+    return <div>Error loading categories: {catError.message}</div>;
+  }
+
+  if (!data || !Array.isArray(data)) {
+    return <div>No categories found.</div>;
+  }
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
@@ -20,9 +47,35 @@ const Navbar = () => {
               <Link href="/" className="text-gray-900 hover:text-primary border-transparent border-b-2 hover:border-primary px-3 py-2 text-sm font-medium">
                 Home
               </Link>
-              <Link href="/category" className="text-gray-900 hover:text-primary border-transparent border-b-2 hover:border-primary px-3 py-2 text-sm font-medium">
-                Categories
-              </Link>
+              {/* Inventory Dropdown */}
+              <div className="relative">
+                <button 
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  className="text-gray-900 hover:text-primary border-transparent border-b-2 hover:border-primary px-3 py-2 text-sm font-medium flex items-center"
+                >
+                  Inventory
+                  <FaChevronDown className="ml-1 h-3 w-3" />
+                </button>
+                {isDropdownOpen && (
+                  <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
+                    {data.map((category) => (
+                      <Link 
+                        key={category._id || category.name} 
+                        href={`/category/${category._id || category.name}/category-details`}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary"
+                      >
+                        {category.name}
+                      </Link>
+                    ))}
+                    <Link 
+                      href="/category"
+                      className="block px-4 py-2 text-sm font-medium text-primary border-t border-gray-100"
+                    >
+                      All Categories
+                    </Link>
+                  </div>
+                )}
+              </div>
               <Link href="/cars" className="text-gray-900 hover:text-primary border-transparent border-b-2 hover:border-primary px-3 py-2 text-sm font-medium">
                 Cars
               </Link>
@@ -50,11 +103,37 @@ const Navbar = () => {
             <Link href="/" className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-primary hover:text-white">
               Home
             </Link>
+            {/* Mobile Inventory Submenu */}
+            <div>
+              <button 
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                className="flex justify-between w-full px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-primary hover:text-white"
+              >
+                Inventory
+                <FaChevronDown className={`transform ${isDropdownOpen ? 'rotate-180' : ''} transition-transform duration-200`} />
+              </button>
+              {isDropdownOpen && (
+                <div className="pl-4 space-y-1 mt-1">
+                  {data.map((category) => (
+                    <Link 
+                      key={category._id || category.name} 
+                      href={`/category/${category._id || category.name}/category-details`}
+                      className="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100"
+                    >
+                      {category.name}
+                    </Link>
+                  ))}
+                  <Link 
+                    href="/category"
+                    className="block px-3 py-2 rounded-md text-sm font-medium text-primary"
+                  >
+                    All Categories
+                  </Link>
+                </div>
+              )}
+            </div>
             <Link href="/cars" className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-primary hover:text-white">
               Cars
-            </Link>
-            <Link href="/category" className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-primary hover:text-white">
-              Categories
             </Link>
             <Link href="/about-us" className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-primary hover:text-white">
               About
