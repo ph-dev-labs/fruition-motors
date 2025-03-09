@@ -5,6 +5,8 @@ import { FaSearch, FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
 import { useQuery } from '@tanstack/react-query';
 import Loader from './loader';
 import axiosInstance from '../libs/axios';
+import Image from 'next/image'; // Import Image from next/image
+import logo from "../../public/logo.png"; // Ensure the path to your logo is correct
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,9 +41,7 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <h1 className="text-2xl font-bold text-primary">
-                Fruition <span className="text-gray-800">Motors</span>
-              </h1>
+              <Image src={logo} alt="Fruition Motors Logo" width={150} height={50} className="h-auto" /> {/* Use Image component */}
             </Link>
             <div className="hidden md:ml-10 md:flex md:space-x-8">
               <Link href="/" className="text-gray-900 hover:text-primary border-transparent border-b-2 hover:border-primary px-3 py-2 text-sm font-medium">
