@@ -33,7 +33,7 @@ const Hero = () => {
       ))}
       
       {/* Dark overlay - Modified to be more transparent */}
-      <div className="absolute inset-0  bg-opacity-10"></div>
+      <div className="absolute h-full w-full top-0 left-0 bg-[#32262662] inset-0  bg-opacity-50"></div>
       
       {/* Content */}
       <div className="relative z-10 h-full flex items-center">
@@ -49,7 +49,7 @@ const Hero = () => {
               Browse Categories
               <FaChevronRight className="ml-2" />
             </Link>
-            <Link href="/about-us" className="bg-black text-primary hover:bg-gray-100 font-medium py-3 px-6 rounded-full inline-flex items-center transition-colors">
+            <Link href="/about-us" className="bg-red-500 text-primary hover:bg-gray-800 hover:text-white font-medium py-3 px-6 rounded-full inline-flex items-center transition-colors">
               Learn More
             </Link>
           </div>

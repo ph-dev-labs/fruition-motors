@@ -69,15 +69,15 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <FaPhone className="text-primary mt-1 mr-3" />
-                <span className="text-gray-400">+1 (555) 123-4567</span>
+                <span className="text-gray-400">+234 810471769</span>
               </li>
               <li className="flex items-start">
                 <FaEnvelope className="text-primary mt-1 mr-3" />
-                <span className="text-gray-400">info@Fruition Motors.com</span>
+                <span className="text-gray-400">fruitionenterprise24@gmail.com</span>
               </li>
               <li className="flex items-start">
                 <FaMapMarkerAlt className="text-primary mt-1 mr-3" />
-                <span className="text-gray-400">123 Auto Avenue, Car City, CC 12345</span>
+                <span className="text-gray-400">Plot 100, KM5, East West Road Nkpolu Rumuigbo, Port Harcourt Rivers State.</span>
               </li>
             </ul>
           </div>

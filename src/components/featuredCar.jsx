@@ -32,7 +32,7 @@ const FeaturedCars = ({cars}) => {
           <div className="text-center mt-12">
             <button 
               onClick={loadMore}
-              className="bg-white border border-primary text-primary hover:bg-primary hover:text-black font-medium py-3 px-8 rounded-full transition-colors"
+              className="border-0 hover:border-1 bg-red-500 text-white hover:bg-gray-800 hover:text-white  border-primary text-primary hover:bg-primary  font-medium py-3 px-8 rounded-full transition-colors"
             >
               Load More
             </button>

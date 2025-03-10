@@ -19,7 +19,7 @@ const CarCard = ({ car }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
         
         {/* Category Badge */}
-        <div className="absolute top-4 right-4 bg-primary text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-md backdrop-blur-sm bg-opacity-90 flex items-center gap-1.5">
+        <div className="absolute top-4 right-4 bg-zinc-800 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-md backdrop-blur-sm bg-opacity-90 flex items-center gap-1.5">
           <FaTag className="text-xs" />
           {car.category}
         </div>
@@ -72,8 +72,8 @@ const CarCard = ({ car }) => {
         <div className="flex justify-center w-full">
           <Link 
             href={`/cars/${car.id}`} 
-            className="bg-primary hover:bg-primary-dark text-white text-sm font-medium py-2.5 px-6 rounded-lg transition-all duration-200 hover:shadow-md inline-block text-center"
-          >
+            className="bg-red-600 text-[#ffff]  text-sm font-medium py-2.5 px-6 rounded-lg transition-all duration-200 hover:shadow-md inline-block text-center"
+          style={{color:"white"}}>
             View Details
           </Link>
         </div>
