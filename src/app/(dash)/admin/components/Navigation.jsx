@@ -69,7 +69,7 @@ const Navigation = () => {
           {/* Logo */}
           <Link href="/admin/dashboard" className="flex items-center gap-2 group">
             <Car size={24} className="text-blue-600 group-hover:text-blue-700 transition-colors" />
-            <span className="font-bold text-gray-800 group-hover:text-blue-600 transition-colors">Car Management</span>
+            <span className="font-bold text-gray-800 group-hover:text-blue-600 transition-colors">FruitionMotors</span>
           </Link>
 
           {/* Desktop Navigation */}

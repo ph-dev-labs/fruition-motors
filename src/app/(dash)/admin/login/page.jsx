@@ -210,7 +210,7 @@ export default function AdminLoginPage() {
           {/* Footer */}
           <div className="bg-gray-50 py-4 px-6 text-center border-t">
             <p className="text-sm text-gray-600">
-              Car Management System &copy; {new Date().getFullYear()}
+             Fruition Car Admin &copy; {new Date().getFullYear()}
             </p>
           </div>
         </div>
