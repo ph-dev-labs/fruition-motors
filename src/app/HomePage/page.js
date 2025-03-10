@@ -98,7 +98,7 @@ export default function HomePage() {
       {catData && catData.length > 0 ? (
         catData.map((category) => (
           <div 
-            key={category.name} 
+            key={category?.name} 
             className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
           >
             <Link href={`/category/${category._id || category.name}/category-details`} className="block">

@@ -10,7 +10,7 @@ const FeaturedCars = ({cars}) => {
     setVisibleCars(prev => Math.min(prev + 4, cars.length));
   };
 
-  console.log(cars)
+  
 
   return (
     <section className="py-12 bg-gray-50">
@@ -23,8 +23,8 @@ const FeaturedCars = ({cars}) => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {cars.slice(0, visibleCars).map(car => (
-            <CarCard key={car.id} car={car} />
+          {cars.slice(0, visibleCars).map((car, index) => (
+            <CarCard key={index} car={car} />
           ))}
         </div>
         
@@ -32,7 +32,7 @@ const FeaturedCars = ({cars}) => {
           <div className="text-center mt-12">
             <button 
               onClick={loadMore}
-              className="bg-white border border-primary text-primary hover:bg-primary hover:text-white font-medium py-3 px-8 rounded-full transition-colors"
+              className="bg-white border border-primary text-primary hover:bg-primary hover:text-black font-medium py-3 px-8 rounded-full transition-colors"
             >
               Load More
             </button>
