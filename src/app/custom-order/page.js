@@ -63,7 +63,7 @@ export default function CustomOrderPage() {
           <div className="max-w-3xl">
             <h1 className="text-4xl font-bold mb-4">Custom Car Orders</h1>
             <p className="text-xl opacity-90 mb-8">
-              Can't find what you're looking for? Let us source your dream car for you.
+              Can`&apos;`t find what you`&apos;`re looking for? Let us source your dream car for you.
             </p>
           </div>
         </div>
@@ -106,7 +106,7 @@ export default function CustomOrderPage() {
               </div>
               <h3 className="text-xl font-bold mb-2">Guaranteed Satisfaction</h3>
               <p className="text-gray-600">
-                We don't stop until we find exactly what you're looking for, guaranteed.
+                We don`&apos;`t stop until we find exactly what you`&apos;`re looking for, guaranteed.
               </p>
             </div>
           </div>
@@ -310,7 +310,7 @@ export default function CustomOrderPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900">What Our Customers Say</h2>
             <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-              We've helped hundreds of customers find their perfect vehicle
+              We`&apos;`ve helped hundreds of customers find their perfect vehicle
             </p>
           </div>
           
@@ -326,7 +326,7 @@ export default function CustomOrderPage() {
                 </div>
               </div>
               <p className="text-gray-700">
-                "I was looking for a specific AMG model with unique specifications. The team found exactly what I wanted within two weeks. Incredible service!"
+                I was looking for a specific AMG model with unique specifications. The team found exactly what I wanted within two weeks. Incredible service!
               </p>
             </div>
             
@@ -341,7 +341,7 @@ export default function CustomOrderPage() {
                 </div>
               </div>
               <p className="text-gray-700">
-                "The custom order process was seamless. They kept me updated throughout and delivered a car that exceeded my expectations."
+                The custom order process was seamless. They kept me updated throughout and delivered a car that exceeded my expectations.
               </p>
             </div>
             
@@ -356,7 +356,7 @@ export default function CustomOrderPage() {
                 </div>
               </div>
               <p className="text-gray-700">
-                "I needed a specific Land Cruiser configuration that wasn't available locally. Their global network found it quickly and the import process was handled perfectly."
+              `&apos;` I needed a specific Land Cruiser configuration that wasn`&apos;`t available locally. Their global network found it quickly and the import process was handled perfectly.`&apos;`
               </p>
             </div>
           </div>
@@ -377,14 +377,14 @@ export default function CustomOrderPage() {
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h3 className="text-lg font-bold text-gray-900 mb-2">How long does the custom order process take?</h3>
               <p className="text-gray-700">
-                Depending on the rarity and specifications of the vehicle, our custom orders typically take 2-8 weeks. We'll provide you with a more specific timeline after reviewing your requirements.
+                Depending on the rarity and specifications of the vehicle, our custom orders typically take 2-8 weeks. We`&apos;`ll provide you with a more specific timeline after reviewing your requirements.
               </p>
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h3 className="text-lg font-bold text-gray-900 mb-2">Is there a deposit required for custom orders?</h3>
               <p className="text-gray-700">
-                Yes, we require a refundable deposit of 10% of the estimated vehicle cost to begin the search process. This deposit is fully refundable if we're unable to find a vehicle that meets your specifications.
+                Yes, we require a refundable deposit of 10% of the estimated vehicle cost to begin the search process. This deposit is fully refundable if we`&apos;`re unable to find a vehicle that meets your specifications.
               </p>
             </div>
             
@@ -396,9 +396,9 @@ export default function CustomOrderPage() {
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-sm">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">What if I'm not satisfied with the vehicle?</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">What if I`&apos;`m not satisfied with the vehicle?</h3>
               <p className="text-gray-700">
-                Customer satisfaction is our top priority. Before finalizing any purchase, we provide detailed information and images of the vehicle. If the vehicle doesn't meet your expectations upon delivery, we offer a satisfaction guarantee.
+                Customer satisfaction is our top priority. Before finalizing any purchase, we provide detailed information and images of the vehicle. If the vehicle doesn`&apos;`t meet your expectations upon delivery, we offer a satisfaction guarantee.
               </p>
             </div>
           </div>

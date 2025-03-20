@@ -345,7 +345,7 @@ export default function SellYourCarPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-gray-50 p-8 rounded-xl relative">
-              <div className="text-red-600 text-5xl absolute -top-4 -left-2">"</div>
+              <div className="text-red-600 text-5xl absolute -top-4 -left-2">{`"`}</div>
               <p className="text-gray-700 mb-6 pt-6">
                 The process was incredibly smooth. I got a fair price for my Toyota Camry and the payment was processed quickly.
               </p>
@@ -359,7 +359,7 @@ export default function SellYourCarPage() {
             </div>
             
             <div className="bg-gray-50 p-8 rounded-xl relative">
-              <div className="text-red-600 text-5xl absolute -top-4 -left-2">"</div>
+              <div className="text-red-600 text-5xl absolute -top-4 -left-2">{`"`}</div>
               <p className="text-gray-700 mb-6 pt-6">
                 I was hesitant at first, but the team made me feel comfortable throughout the entire selling process.
               </p>
@@ -373,7 +373,7 @@ export default function SellYourCarPage() {
             </div>
             
             <div className="bg-gray-50 p-8 rounded-xl relative">
-              <div className="text-red-600 text-5xl absolute -top-4 -left-2">"</div>
+              <div className="text-red-600 text-5xl absolute -top-4 -left-2">{`"`}</div>
               <p className="text-gray-700 mb-6 pt-6">
                 Sold my Mercedes in just 3 days. The offer was better than what I could get elsewhere. Highly recommended!
               </p>
