@@ -63,7 +63,7 @@ const CarCard = ({ car }) => {
                 <span className="text-xs">Message</span>
               </a>
               <a 
-                href={`https://wa.me/${phoneNumber}`}
+                href={`https://wa.me/+2348157083863`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col items-center justify-center bg-green-600 text-white rounded-lg py-2 px-3 transition-all hover:bg-green-700"
