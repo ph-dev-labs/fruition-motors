@@ -6,10 +6,9 @@ import { FaChevronRight } from 'react-icons/fa';
 const Hero = () => {
   const [currentBg, setCurrentBg] = useState(0);
   const backgrounds = [
-    'https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  ];
+    'https://wigmoretrading.com/wp-content/uploads/2022/08/iStock-1325361893.jpg',
+    'https://buycars.ng/wp-content/uploads/car-dealers-abuja-1000x556.jpg',
+    'https://gazettengr.com/wp-content/uploads/Buy-A-Car-And-Pay-In-Monthly-Installment-Guide-In-Nigeria.jpg'  ];
 
   useEffect(() => {
     const interval = setInterval(() => {

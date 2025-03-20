@@ -1,9 +1,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaGasPump, FaCog, FaCalendarAlt, FaChair, FaTag } from 'react-icons/fa';
-import { formatPrice } from '../utils/carData';
+import { FaGasPump, FaCog, FaCalendarAlt, FaChair, FaTag, FaPhone, FaComment, FaWhatsapp } from 'react-icons/fa';
+import { useState } from 'react';
 
 const CarCard = ({ car }) => {
+  const [showContactOptions, setShowContactOptions] = useState(false);
+  const phoneNumber = "0810471769";
+  
+  const toggleContactOptions = () => {
+    setShowContactOptions(!showContactOptions);
+  };
+
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl border border-gray-100">
       {/* Image Container with Gradient Overlay */}
@@ -29,11 +36,44 @@ const CarCard = ({ car }) => {
         {/* Title - Full Width on One Line */}
         <h3 className="text-lg font-bold text-gray-800 truncate mb-2 w-full">{car.title}</h3>
         
-        {/* Price - Full Width on Its Own Line */}
-        <p className="font-bold text-primary text-base mb-4 w-full">{formatPrice(car.price)}</p>
-        
-        {/* Description */}
-        {/* <p className="text-gray-600 text-sm mb-5 line-clamp-2">{car.description}</p> */}
+        {/* Buy Button - Replaced Price */}
+        <div className="mb-4 w-full">
+          <button 
+            onClick={toggleContactOptions}
+            className="w-full border border-red-600 text-gray-700 text-sm font-medium py-2.5 px-6 rounded-lg transition-all duration-200 hover:shadow-md"
+          >
+            Buy Now
+          </button>
+          
+          {/* Contact Options - Conditionally Rendered */}
+          {showContactOptions && (
+            <div className="mt-2 grid grid-cols-3 gap-2">
+              <a 
+                href={`tel:${phoneNumber}`}
+                className="flex flex-col items-center justify-center bg-blue-500 text-white rounded-lg py-2 px-3 transition-all hover:bg-blue-600"
+              >
+                <FaPhone className="mb-1" />
+                <span className="text-xs">Call</span>
+              </a>
+              <a 
+                href={`sms:${phoneNumber}`}
+                className="flex flex-col items-center justify-center bg-green-500 text-white rounded-lg py-2 px-3 transition-all hover:bg-green-600"
+              >
+                <FaComment className="mb-1" />
+                <span className="text-xs">Message</span>
+              </a>
+              <a 
+                href={`https://wa.me/${phoneNumber}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center justify-center bg-green-600 text-white rounded-lg py-2 px-3 transition-all hover:bg-green-700"
+              >
+                <FaWhatsapp className="mb-1" />
+                <span className="text-xs">WhatsApp</span>
+              </a>
+            </div>
+          )}
+        </div>
         
         {/* Specifications Grid */}
         <div className="grid grid-cols-2 gap-y-3 gap-x-4 mb-5">
@@ -72,8 +112,8 @@ const CarCard = ({ car }) => {
         <div className="flex justify-center w-full">
           <Link 
             href={`/cars/${car.id}`} 
-            className="bg-red-600 text-[#ffff]  text-sm font-medium py-2.5 px-6 rounded-lg transition-all duration-200 hover:shadow-md inline-block text-center"
-          style={{color:"white"}}>
+            className="bg-red-600 text-white text-sm font-medium py-2.5 px-6 rounded-lg transition-all duration-200 hover:shadow-md inline-block text-center"
+          >
             View Details
           </Link>
         </div>

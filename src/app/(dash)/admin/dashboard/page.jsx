@@ -27,8 +27,8 @@ function AdminDashboard() {
   const queryClient = useQueryClient();
   const [searchTerm, setSearchTerm] = useState("");
   const [filter, setFilter] = useState("all");
+  const [visibleCarsCount, setVisibleCarsCount] = useState(10); // Initial number of cars to display
 
-  // Fetch cars with proper typing
   const {
     data: response,
     isLoading: carsLoading,
@@ -37,6 +37,18 @@ function AdminDashboard() {
     queryKey: ["cars"],
     queryFn: async () => {
       const response = await axios.get("/cars");
+      return response.data.cars;
+    },
+  });
+
+  const {
+    data: featuredResponse,
+    isLoading: featuredCarsLoading,
+    error: featuredCarsError,
+  } = useQuery({
+    queryKey: ["featuredListing"],
+    queryFn: async () => {
+      const response = await axios.get("/carlisting");
       return response.data.cars;
     },
   });
@@ -53,13 +65,10 @@ function AdminDashboard() {
     },
   });
 
-  // Ensure we have an array to work with
   const cars = useMemo(() => (Array.isArray(response) ? response : []), [response]);
 
-  // Memoize stats calculation to prevent recalculation on every render
   const stats = useMemo(() => {
     const uniqueBrands = new Set(cars.map((car) => car.brand_name));
-    
     const totalPrice = cars.reduce((acc, car) => acc + car.price, 0);
     const averagePrice = cars.length ? Math.round(totalPrice / cars.length) : 0;
 
@@ -91,7 +100,6 @@ function AdminDashboard() {
     ];
   }, [cars, categories]);
 
-  // Memoize filtered cars to prevent unnecessary recalculation
   const filteredCars = useMemo(() => {
     return cars.filter((car) => {
       const matchesSearch =
@@ -102,7 +110,6 @@ function AdminDashboard() {
     });
   }, [cars, searchTerm, filter]);
 
-  // Delete car mutation
   const deleteCarMutation = useMutation({
     mutationFn: async (id) => {
       const response = await axios.delete(`/deleteCar?id=${id}`);
@@ -113,8 +120,18 @@ function AdminDashboard() {
     },
   });
 
+  const deleteFeaturedCarMutation = useMutation({
+    mutationFn: async (id) => {
+      const response = await axios.delete(`/deleteCar?id=${id}`);
+      return response.data;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["cars"] });
+    },
+  });
+
   const isLoading = carsLoading || categoriesLoading;
-  const hasError = carsError || categoriesError;
+  const hasError = carsError || categoriesError || featuredCarsError;
 
   if (hasError) {
     return (
@@ -138,23 +155,20 @@ function AdminDashboard() {
       <Navigation />
 
       <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
-        <h1 className="text-2xl font-semibold text-gray-900 mb-6">Dashboard Overview</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-6">Dashboard Overview</h1>
         
-        {/* Stats Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {stats.map((stat, index) => (
             <StatsCard key={index} {...stat} isLoading={isLoading} />
           ))}
         </div>
 
-        {/* Car Listings Section */}
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <div className="p-4 sm:p-6 border-b">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <h2 className="text-lg font-medium text-gray-900">Car Listings</h2>
+              <h2 className="text-xl font-semibold text-gray-900">Car Listings</h2>
               
               <div className="flex flex-col sm:flex-row gap-3">
-                {/* Search Input */}
                 <div className="relative">
                   <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
                     <Search size={16} />
@@ -164,16 +178,15 @@ function AdminDashboard() {
                     placeholder="Search cars..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 pr-4 py-2 w-full sm:w-auto border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition-colors"
+                    className="pl-10 pr-4 py-2 w-full sm:w-auto border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                   />
                 </div>
                 
-                {/* Category Filter */}
                 <select
                   value={filter}
                   onChange={(e) => setFilter(e.target.value)}
                   disabled={categoriesLoading}
-                  className="border rounded-md py-2 px-4 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition-colors"
+                  className="border rounded-md py-2 px-4 focus:ring-2 focus:ring-blue-500 transition-colors"
                 >
                   <option value="all">All Categories</option>
                   {categories?.map((category, index) => (
@@ -186,7 +199,6 @@ function AdminDashboard() {
             </div>
           </div>
           
-          {/* Content Area */}
           <div className="p-4 sm:p-6">
             {isLoading ? (
               <div className="flex justify-center items-center py-12">
@@ -201,7 +213,46 @@ function AdminDashboard() {
             ) : (
               <div className="overflow-x-auto">
                 <CarList
-                  cars={filteredCars}
+                  cars={filteredCars.slice(0, visibleCarsCount)} // Show only the visible cars
+                  onDelete={deleteCarMutation.mutateAsync}
+                  isDeleting={deleteCarMutation.isPending}
+                />
+                {visibleCarsCount < filteredCars.length && (
+                  <div className="flex justify-center mt-4">
+                    <button
+                      onClick={() => setVisibleCarsCount((prev) => prev + 10)} // Load 10 more cars
+                      className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors"
+                    >
+                      Load More
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Featured Listings Section */}
+        <div className="bg-white rounded-lg shadow-md overflow-hidden mt-8">
+          <div className="p-4 sm:p-6 border-b">
+            <h2 className="text-xl font-semibold text-gray-900">Featured Listings</h2>
+          </div>
+          
+          <div className="p-4 sm:p-6">
+            {featuredCarsLoading ? (
+              <div className="flex justify-center items-center py-12">
+                <Loader2 size={36} className="animate-spin text-blue-500" />
+                <span className="ml-3 text-gray-600 font-medium">Loading data...</span>
+              </div>
+            ) : featuredResponse.length === 0 ? (
+              <div className="bg-blue-50 text-blue-700 p-4 rounded-md flex items-center justify-center">
+                <AlertCircle size={20} className="mr-2 flex-shrink-0" />
+                <span>No featured cars available.</span>
+              </div>
+            ) : (
+              <div className="overflow-x-auto">
+                <CarList
+                  cars={featuredResponse}
                   onDelete={deleteCarMutation.mutateAsync}
                   isDeleting={deleteCarMutation.isPending}
                 />

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Package, Calendar, Fuel, Trash2, Edit2, ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
 import getSymbolFromCurrency from "currency-symbol-map";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+
 
 const CarList = ({ cars, onDelete, isDeleting }) => {
   const router = useRouter();
@@ -147,7 +147,7 @@ const CarList = ({ cars, onDelete, isDeleting }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {currentCars.map((car) => (
               <div 
-                key={car.id} 
+                key={car.name} 
                 className="h-full border rounded-lg shadow-sm bg-white overflow-hidden hover:shadow-md transition-shadow duration-200"
               >
                 <div className="relative">

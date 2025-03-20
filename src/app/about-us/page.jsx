@@ -32,13 +32,13 @@ export default function About() {
                 <FaRobot className="text-primary text-3xl mr-4" />
               </div>
               <p className="text-gray-600 mb-4">
-                Welcome to Fruition Motors, the leading car dealership in Port Harcourt, where your exceptional automotive journey begins. Founded with a deep-seated passion for quality and a steadfast commitment to customer satisfaction, we proudly offer a vast array of both brand new and certified pre-owned vehicles.
+              Welcome to Fruition Motors, the premier car dealership located in the vibrant heart of Port Harcourt, where your remarkable automotive adventure begins. Established with a genuine passion for excellence and a strong dedication to ensuring customer satisfaction, we take great pride in offering an extensive selection of certified pre-owned vehicles.
               </p>
               <p className="text-gray-600 mb-4">
-                Introducing Nootee, your intelligent automotive companion at Fruition Motors. Nootee is designed to provide personalized vehicle recommendations based on your preferences, answer your automotive questions in real-time, and guide you through our extensive inventory with ease.
+              No matter where you are in Nigeria, our team is devoted to providing you with a hassle-free and enjoyable car-buying experience. Our diverse inventory features an impressive array of luxury vehicles, ranging from sleek sedans to robust SUVs, ensuring that you’ll discover the ideal car to match your lifestyle and preferences. Drive away from our dealership not just with a top vehicle, but with a beaming smile and a sense of fulfillment.
               </p>
               <p className="text-gray-600">
-                Available 24/7 through our website and mobile app, Nootee combines automotive expertise with artificial intelligence to make your car shopping experience more intuitive and enjoyable than ever before.
+               To enhance your experience, our website and social media channels are available 24/7, providing you with convenient access to our offers, detailed vehicle listings, and helpful resources. At Fruition Motors, we strive to make your journey to find the perfect car more intuitive and pleasurable than ever before.
               </p>
             </div>
             <div className="relative h-80 rounded-lg overflow-hidden">

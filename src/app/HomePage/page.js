@@ -32,6 +32,8 @@ export default function HomePage() {
     return <div>Error: {error?.message || catError.message}</div>; // Show an error message
   }
 
+  console.log(catData)
+
   return (
     <Layout>
       {/* Hero Section */}
