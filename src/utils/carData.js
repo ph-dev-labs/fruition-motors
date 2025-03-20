@@ -85,9 +85,10 @@ export const cars = [
   };
   
   export const formatPrice = (price) => {
-    return new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat('en-NG', {
       style: 'currency',
-      currency: "ngn" ,
+      currency: 'NGN',
+      currencyDisplay: 'symbol',
       minimumFractionDigits: 0,
     }).format(price);
   };

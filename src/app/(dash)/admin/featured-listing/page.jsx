@@ -24,7 +24,7 @@ function FeaturedPage() {
   const mode = slug === "new" || slug === "featured-listing"? "create" : "update";
   const carId = mode === "update" ? slug : null;
   const queryClient = useQueryClient();
-  console.log(mode, slug)
+  
 
   // Fetch car data if in update mode
   const { data: carData, isLoading: isLoadingCar } = useQuery({

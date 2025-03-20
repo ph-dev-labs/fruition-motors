@@ -44,9 +44,9 @@ export const useGetFeaturedListing = () => {
 
 export const useGetCarsById = (id) => {
   return useQuery({
-    queryKey: [`cars`, id], // Unique key for caching
+    queryKey: [`car`, id], // Unique key for caching
     queryFn: async () => {
-      const { data } = await axiosInstance.get('/cars', {
+      const { data } = await axiosInstance.get('/car', {
         params: {
           id: id, // Set the query parameter
         },

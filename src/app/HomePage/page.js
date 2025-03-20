@@ -23,6 +23,7 @@ export default function HomePage() {
       return response?.data.category; // Ensure this matches your API response structure
     },
   });
+  console.log(catData)
 
   if (isLoading || catLoading) {
     return <Loader />; // Show a loading state

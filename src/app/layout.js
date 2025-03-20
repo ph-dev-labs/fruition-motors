@@ -1,17 +1,9 @@
-import { Geist, Geist_Mono, Outfit} from "next/font/google";
+import { Outfit} from "next/font/google";
 import "./globals.css";
 
 import QueryClientProviderWrapper from "./queryProvider"; // Import the new component
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const outfit = Outfit({
   variable:"--outfit",
