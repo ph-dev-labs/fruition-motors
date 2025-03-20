@@ -38,7 +38,7 @@ export default function Contact() {
       {/* Hero Section */}
       <section className="relative h-80 bg-[#170a0aab]">
         <Image
-          src="https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1966&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="Fruition Motors Contact"
           layout="fill"
           objectFit="cover"
@@ -132,8 +132,8 @@ export default function Contact() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-medium text-gray-900">Phone</h3>
-                    <p className="text-gray-600">+234 800 123 4567</p>
-                    <p className="text-gray-600">+234 809 876 5432</p>
+                    <p className="text-gray-600">+234 810471769</p>
+                    <p className="text-gray-600">+234 810471769</p>
                   </div>
                 </div>
                 
@@ -143,8 +143,8 @@ export default function Contact() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-medium text-gray-900">Email</h3>
-                    <p className="text-gray-600">info@fruitionmotors.com</p>
-                    <p className="text-gray-600">sales@fruitionmotors.com</p>
+                    <p className="text-gray-600">fruitionenterprise24@gmail.com</p>
+                    <p className="text-gray-600">fruitionenterprise24@gmail.com</p>
                   </div>
                 </div>
                 
@@ -154,7 +154,8 @@ export default function Contact() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-medium text-gray-900">Location</h3>
-                    <p className="text-gray-600">123 Aba Road</p>
+                    <p className="text-gray-600">Plot 100, KM5,</p>
+                    <p className="text-gray-600"> East West Road Nkpolu Rumuigbo</p>
                     <p className="text-gray-600">Port Harcourt, Rivers State</p>
                     <p className="text-gray-600">Nigeria</p>
                   </div>

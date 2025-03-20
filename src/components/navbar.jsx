@@ -82,6 +82,10 @@ const Navbar = () => {
               <Link href="/about-us" className="text-gray-900 hover:text-primary border-transparent border-b-2 hover:border-primary px-3 py-2 text-sm font-medium">
                 About
               </Link>
+
+              <Link href="/contact-us" className="text-gray-900 hover:text-primary border-transparent border-b-2 hover:border-primary px-3 py-2 text-sm font-medium">
+                Contact us
+              </Link>
             </div>
           </div>
           <div className="flex items-center">
@@ -137,6 +141,9 @@ const Navbar = () => {
             </Link>
             <Link href="/about-us" className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-primary hover:text-white">
               About
+            </Link>
+            <Link href="/contact-us" className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-primary hover:text-white">
+              Contact us
             </Link>
           </div>
           <div className="px-4 py-3">

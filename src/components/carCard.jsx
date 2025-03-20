@@ -40,7 +40,7 @@ const CarCard = ({ car }) => {
         <div className="mb-4 w-full">
           <button 
             onClick={toggleContactOptions}
-            className="w-full border border-red-600 text-gray-700 text-sm font-medium py-2.5 px-6 rounded-lg transition-all duration-200 hover:shadow-md"
+            className="w-full bg-red-600 text-white text-sm font-medium py-2.5 px-6 rounded-lg transition-all duration-200 hover:shadow-md"
           >
             Buy Now
           </button>
@@ -68,8 +68,8 @@ const CarCard = ({ car }) => {
                 rel="noopener noreferrer"
                 className="flex flex-col items-center justify-center bg-green-600 text-white rounded-lg py-2 px-3 transition-all hover:bg-green-700"
               >
-                <FaWhatsapp className="mb-1" />
-                <span className="text-xs">WhatsApp</span>
+                <FaWhatsapp className="mb-1 " />
+                <span className="text-xs ">WhatsApp</span>
               </a>
             </div>
           )}

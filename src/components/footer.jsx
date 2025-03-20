@@ -16,18 +16,18 @@ const Footer = () => {
               Find your dream car with our extensive collection of premium vehicles and exceptional service.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+              {/* <a href="#" className="text-gray-400 hover:text-primary transition-colors">
                 <FaFacebook size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+              </a> */}
+              <a href="https://x.com/fruitionmotors?s=11" className="text-gray-400 hover:text-primary transition-colors">
                 <FaTwitter size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+              <a href="https://www.instagram.com/fruitionmotors?igsh=MTAxd2R5OXQ4bmk3OQ==" className="text-gray-400 hover:text-primary transition-colors">
                 <FaInstagram size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+              {/* <a href="#" className="text-gray-400 hover:text-primary transition-colors">
                 <FaYoutube size={20} />
-              </a>
+              </a> */}
             </div>
           </div>
           
@@ -41,7 +41,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/about-us" className="text-gray-400 hover:text-white transition-colors">
                   About Us
                 </Link>
               </li>
