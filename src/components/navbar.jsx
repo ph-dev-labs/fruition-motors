@@ -139,14 +139,14 @@ const Navbar = () => {
             </div>
           </div>
           <div className="flex items-center">
-            <div className="hidden md:flex items-center border border-gray-300 rounded-full px-3 py-1 bg-gray-50">
+            {/* <div className="hidden md:flex items-center border border-gray-300 rounded-full px-3 py-1 bg-gray-50">
               <input
                 type="text"
                 placeholder="Search cars..."
                 className="bg-transparent border-none focus:outline-none text-sm"
               />
               <FaSearch className="text-gray-500 ml-2" />
-            </div>
+            </div> */}
             <button
               className="md:hidden ml-auto"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -254,14 +254,14 @@ const Navbar = () => {
             </div>
           </div>
           <div className="px-4 py-3">
-            <div className="flex items-center border border-gray-300 rounded-full px-3 py-1 bg-gray-50">
+            {/* <div className="flex items-center border border-gray-300 rounded-full px-3 py-1 bg-gray-50">
               <input
                 type="text"
                 placeholder="Search cars..."
                 className="bg-transparent border-none focus:outline-none text-sm w-full"
               />
               <FaSearch className="text-gray-500 ml-2" />
-            </div>
+            </div> */}
           </div>
         </div>
       )}

@@ -9,7 +9,7 @@ export default function About() {
       {/* Hero Section */}
       <section className="relative h-80 bg-[#170a0aab]">
         <Image
-          src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2066&auto=format&fit=crop&ixlib=rb-4.0.3"
           alt="Fruition Motors Team"
           layout="fill"
           objectFit="cover"
@@ -43,7 +43,7 @@ export default function About() {
             </div>
             <div className="relative h-80 rounded-lg overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Nootee AI Assistant"
                 layout="fill"
                 objectFit="cover"
@@ -91,7 +91,7 @@ export default function About() {
       </section>
       
       {/* Our Team */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900">Meet Our Team</h2>
@@ -154,7 +154,7 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </Layout>
   );
 }
