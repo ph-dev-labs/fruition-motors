@@ -2,6 +2,7 @@ import { Outfit} from "next/font/google";
 import "./globals.css";
 
 import QueryClientProviderWrapper from "./queryProvider"; // Import the new component
+import { Toaster } from "react-hot-toast";
 
 
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
       <body className={`${outfit.className}  antialiased`}>
         <QueryClientProviderWrapper>
           {children}
+          <Toaster />
         </QueryClientProviderWrapper>
       </body>
     </html>

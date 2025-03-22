@@ -48,7 +48,7 @@ const Hero = () => {
               Browse Categories
               <FaChevronRight className="ml-2" />
             </Link>
-            <Link href="/about-us" className="bg-red-500 text-primary hover:bg-gray-800 hover:text-white font-medium py-3 px-6 rounded-full inline-flex items-center transition-colors">
+            <Link href="/about-us" className="bg-red-500 text-primary hover:bg-red-900 hover:text-white font-medium py-3 px-6 rounded-full inline-flex items-center transition-colors">
               Learn More
             </Link>
           </div>

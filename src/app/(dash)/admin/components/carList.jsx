@@ -145,9 +145,9 @@ const CarList = ({ cars, onDelete, isDeleting }) => {
       ) : (
         <>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {currentCars.map((car) => (
+            {currentCars.map((car, index) => (
               <div 
-                key={car.name} 
+                key={car.id} 
                 className="h-full border rounded-lg shadow-sm bg-white overflow-hidden hover:shadow-md transition-shadow duration-200"
               >
                 <div className="relative">

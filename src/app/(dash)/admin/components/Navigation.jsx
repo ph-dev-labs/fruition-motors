@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Car, Plus, LayoutDashboard, UserPlus, Settings, LogOut, Menu, X, Flame, ChevronDown, ChevronUp } from 'lucide-react';
+import { Car, Plus, LayoutDashboard, UserPlus, Settings, LogOut, Menu, X, Flame, ChevronDown, ChevronUp, ListOrdered } from 'lucide-react';
 import { Outfit } from 'next/font/google';
 import { getCookie, deleteCookie } from 'cookies-next';
 import toast from 'react-hot-toast';
@@ -78,9 +78,10 @@ const Navigation = () => {
 
   // Secondary links to display in the dropdown
   const secondaryNavLinks = [
-    { href: '/admin/featured-listing', icon: <Flame size={18} />, label: 'Featured Listing' },
+    { href: '/admin/custom-orders', icon: <ListOrdered size={18} />, label: 'Customer Orders' },
     { href: '/admin/create-admin', icon: <UserPlus size={18} />, label: 'Create Admin' },
-    { href: '/admin/create-category', icon: <Settings size={18} />, label: 'Create Category' }
+    { href: '/admin/create-category', icon: <Settings size={18} />, label: 'Create Category' },
+    { href: '/admin/sell-orders', icon: <ListOrdered size={18} />, label: 'Sell Orders' },
   ];
 
   const isActive = (path) => pathname === path;

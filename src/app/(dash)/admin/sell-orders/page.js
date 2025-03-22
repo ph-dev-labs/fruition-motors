@@ -331,12 +331,12 @@ export default function SellOrdersPage() {
                                   {order.transmission}
                                 </span>
                               </div>
-                              {order.description && (
+                              {/* {order.description && (
                                 <div className="mt-2 text-xs text-gray-500 max-w-xs truncate">
                                   <FileText className="inline text-gray-400 mr-1" size={12} />
                                   {order.description}
                                 </div>
-                              )}
+                              )} */}
                             </div>
                           </td>
                           <td className="px-6 py-4">

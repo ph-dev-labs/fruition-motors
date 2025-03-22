@@ -6,6 +6,8 @@ const protectedPaths = [
   "/admin/add-car",
   "/admin/create-admin",
   "/admin/create-category",
+  "/admin/custom-orders",
+  "/admin/sell-orders",
 ];
 
 const publicPaths = ["/admin/login"];
