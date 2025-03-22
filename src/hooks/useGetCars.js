@@ -66,9 +66,9 @@ export const useGetSellOrder = () => {
 
 export const useGetCarsById = (id) => {
   return useQuery({
-    queryKey: [`car`, id], // Unique key for caching
+    queryKey: [`cars`, id], // Unique key for caching
     queryFn: async () => {
-      const { data } = await axiosInstance.get('/car', {
+      const { data } = await axiosInstance.get('/cars', {
         params: {
           id: id, // Set the query parameter
         },
