@@ -3,11 +3,12 @@ import { useState } from 'react';
 import Layout from '../../components/layout';
 import { FaCarAlt, FaCheckCircle, FaCog, FaSearch } from 'react-icons/fa';
 import Image from 'next/image';
+import { useCreateCustomerOrders } from '../../hooks/useGetCars';
 
 export default function CustomOrderPage() {
   const [formData, setFormData] = useState({
-    fullName: '',
-    phoneNumber: '',
+    fullname: '',
+    phone: '',
     email: '',
     make: '',
     model: '',
@@ -15,11 +16,12 @@ export default function CustomOrderPage() {
     transmission: '',
     color: '',
     condition: '',
-    additionalDetails: ''
+    details: ''
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const customOrders = useCreateCustomerOrders()
   
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,31 +30,27 @@ export default function CustomOrderPage() {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      console.log('Form submitted:', formData);
-      setSubmitSuccess(true);
-      // Reset form after submission
-      setFormData({
-        fullName: '',
-        phoneNumber: '',
-        email: '',
-        make: '',
-        model: '',
-        year: '',
-        transmission: '',
-        color: '',
-        condition: '',
-        additionalDetails: ''
-      });
-    } catch (error) {
-      console.error('Submission error:', error);
-    } finally {
-      setIsSubmitting(false);
-    }
+    customOrders.mutate(formData, {
+      onSuccess: ()=> {
+        setSubmitSuccess(true);
+        // Reset form after submission
+        setFormData({
+          fullname: '',
+          phone: '',
+          email: '',
+          make: '',
+          model: '',
+          year: '',
+          transmission: '',
+          color: '',
+          condition: '',
+          additionalDetails: ''
+        });
+      }, 
+      onError: () => {
+        setIsSubmitting(false);
+      }
+    })  
   };
 
   return (
@@ -63,7 +61,7 @@ export default function CustomOrderPage() {
           <div className="max-w-3xl">
             <h1 className="text-4xl font-bold mb-4">Custom Car Orders</h1>
             <p className="text-xl opacity-90 mb-8">
-              Can`&apos;`t find what you`&apos;`re looking for? Let us source your dream car for you.
+              Can&apos;t find what you&apos;re looking for? Let us source your dream car for you.
             </p>
           </div>
         </div>
@@ -106,7 +104,7 @@ export default function CustomOrderPage() {
               </div>
               <h3 className="text-xl font-bold mb-2">Guaranteed Satisfaction</h3>
               <p className="text-gray-600">
-                We don`&apos;`t stop until we find exactly what you`&apos;`re looking for, guaranteed.
+                We don&apos;t stop until we find exactly what you&apos;re looking for, guaranteed.
               </p>
             </div>
           </div>
@@ -140,24 +138,24 @@ export default function CustomOrderPage() {
                     <h3 className="text-lg font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-100">Contact Information</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <label htmlFor="fullname" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
                         <input
                           type="text"
-                          id="fullName"
-                          name="fullName"
-                          value={formData.fullName}
+                          id="fullname"
+                          name="fullname"
+                          value={formData.fullname}
                           onChange={handleChange}
                           required
                           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-red-600 outline-none transition"
                         />
                       </div>
                       <div>
-                        <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
                         <input
                           type="tel"
-                          id="phoneNumber"
-                          name="phoneNumber"
-                          value={formData.phoneNumber}
+                          id="phone"
+                          name="phone"
+                          value={formData.phone}
                           onChange={handleChange}
                           required
                           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-red-600 outline-none transition"
@@ -274,9 +272,9 @@ export default function CustomOrderPage() {
                           Additional Details or Requirements
                         </label>
                         <textarea
-                          id="additionalDetails"
-                          name="additionalDetails"
-                          value={formData.additionalDetails}
+                          id="details"
+                          name="details"
+                          value={formData.details}
                           onChange={handleChange}
                           rows="4"
                           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-red-600 outline-none transition"
@@ -310,7 +308,7 @@ export default function CustomOrderPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900">What Our Customers Say</h2>
             <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-              We`&apos;`ve helped hundreds of customers find their perfect vehicle
+              We&apos;ve helped hundreds of customers find their perfect vehicle
             </p>
           </div>
           
@@ -356,7 +354,7 @@ export default function CustomOrderPage() {
                 </div>
               </div>
               <p className="text-gray-700">
-              `&apos;` I needed a specific Land Cruiser configuration that wasn`&apos;`t available locally. Their global network found it quickly and the import process was handled perfectly.`&apos;`
+              &apos; I needed a specific Land Cruiser configuration that wasn&apos;t available locally. Their global network found it quickly and the import process was handled perfectly.&apos;
               </p>
             </div>
           </div>
@@ -377,14 +375,14 @@ export default function CustomOrderPage() {
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h3 className="text-lg font-bold text-gray-900 mb-2">How long does the custom order process take?</h3>
               <p className="text-gray-700">
-                Depending on the rarity and specifications of the vehicle, our custom orders typically take 2-8 weeks. We`&apos;`ll provide you with a more specific timeline after reviewing your requirements.
+                Depending on the rarity and specifications of the vehicle, our custom orders typically take 2-8 weeks. We&apos;ll provide you with a more specific timeline after reviewing your requirements.
               </p>
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h3 className="text-lg font-bold text-gray-900 mb-2">Is there a deposit required for custom orders?</h3>
               <p className="text-gray-700">
-                Yes, we require a refundable deposit of 10% of the estimated vehicle cost to begin the search process. This deposit is fully refundable if we`&apos;`re unable to find a vehicle that meets your specifications.
+                Yes, we require a refundable deposit of 10% of the estimated vehicle cost to begin the search process. This deposit is fully refundable if we&apos;re unable to find a vehicle that meets your specifications.
               </p>
             </div>
             
@@ -396,7 +394,7 @@ export default function CustomOrderPage() {
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-sm">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">What if I`&apos;`m not satisfied with the vehicle?</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">What if I&apos;m not satisfied with the vehicle?</h3>
               <p className="text-gray-700">
                 Customer satisfaction is our top priority. Before finalizing any purchase, we provide detailed information and images of the vehicle. If the vehicle doesn`&apos;`t meet your expectations upon delivery, we offer a satisfaction guarantee.
               </p>

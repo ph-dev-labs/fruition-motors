@@ -1,5 +1,5 @@
 "use client"
-import { useCars, useGetFeaturedListing } from '../../hooks/useGetCars';
+import { useCars } from '../../hooks/useGetCars';
 import Hero from '../../components/Hero';
 import FeaturedCars from '../../components/featuredCar';
 import Link from 'next/link';
@@ -11,7 +11,7 @@ import axiosInstance from '../../libs/axios'; // Ensure axiosInstance is importe
 import Image from 'next/image'; // Import Image from next/image
 
 export default function HomePage() {
-  const { data, isLoading, isError, error } = useGetFeaturedListing();
+  const { data, isLoading, isError, error } = useCars();
   const {
     data: catData,
     isLoading: catLoading,
@@ -23,7 +23,9 @@ export default function HomePage() {
       return response?.data.category; // Ensure this matches your API response structure
     },
   });
-  console.log(catData)
+  
+  const featuredCar = data?.filter(car => car.featured === "featured")
+  console.log(featuredCar)
 
   if (isLoading || catLoading) {
     return <Loader />; // Show a loading state
@@ -33,7 +35,7 @@ export default function HomePage() {
     return <div>Error: {error?.message || catError.message}</div>; // Show an error message
   }
 
-  console.log(catData)
+
 
   return (
     <Layout>
@@ -41,7 +43,7 @@ export default function HomePage() {
       <Hero />
       
       {/* Featured Cars Section */}
-      <FeaturedCars cars={data.cars} />
+      <FeaturedCars cars={featuredCar} />
       
       {/* Why Choose Us Section */}
       <section className="py-16 bg-white">

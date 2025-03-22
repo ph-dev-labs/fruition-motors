@@ -18,6 +18,7 @@ import {
   XCircle,
   Image as ImageIcon,
   Loader2,
+  FireExtinguisher,
 } from "lucide-react";
 import { uploadToCloudinary } from "../../../../utils/cloudinary";
 import getSymbolFromCurrency from "currency-symbol-map";
@@ -37,6 +38,7 @@ const initialFormData = {
   color: "",
   seat: 0,
   type_of_gear: "",
+  featured: "main"
 };
 
 const outfit = Outfit({
@@ -106,6 +108,7 @@ const CarForm = ({ onSubmit, isLoading, initialData, categoryData, mode = "creat
     if (!formData.color.trim()) newErrors.color = "Color is required";
     if (formData.seat <= 0) newErrors.seat = "Seats must be greater than 0";
     if (!formData.type_of_gear) newErrors.type_of_gear = "Gear type is required";
+    if (!formData.featured) newErrors.featured = "Featured is required";
     if (mode === "create" && !selectedFile && !previewUrl) newErrors.image = "Main image is required";
     
     setErrors(newErrors);
@@ -369,7 +372,22 @@ const CarForm = ({ onSubmit, isLoading, initialData, categoryData, mode = "creat
             </select>
             {errors.fuel_type && <p className="mt-1 text-sm text-red-500 error-message">{errors.fuel_type}</p>}
           </div>
-
+          <div className="space-y-2">
+            <label className={labelClassName}>
+              <FireExtinguisher size={18} className="text-blue-500" /> Make Featured
+            </label>
+            <select
+              name="featured"
+              value={formData.featured}
+              onChange={handleInputChange}
+              className={`${inputClassName} ${errors.featured ? 'border-red-500' : 'border-gray-300'}`}
+            >
+              <option value="">Select fuel type</option>
+              <option value="main">Main</option>
+              <option value="featured">Featured</option>
+            </select>
+            {errors.featured && <p className="mt-1 text-sm text-red-500 error-message">{errors.featured}</p>}
+          </div>
           <div className="space-y-2">
             <label className={labelClassName}>
               <Palette size={18} className="text-blue-500" /> Color

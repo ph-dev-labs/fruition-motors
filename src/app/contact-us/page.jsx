@@ -3,14 +3,17 @@ import { useState } from 'react';
 import Layout from '../../components/layout';
 import Image from 'next/image';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { useSendContactUs } from '../../hooks/useGetCars'; // Consider renaming this file for clarity
+import toast from 'react-hot-toast';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
+    fullname: '',
     phone: '',
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const contactUs = useSendContactUs();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,14 +26,18 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    // Here you would typically send the data to your server
-    setIsSubmitted(true);
-    setFormData({ name: '', phone: '', message: '' });
     
-    // Reset the submission state after 5 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 5000);
+    contactUs.mutate(formData, {
+      onSuccess: () => {
+        setIsSubmitted(true);
+        toast.success("We will reach out to you shortly");
+        setFormData({ fullname: '', phone: '', message: '' }); // Reset form with correct field names
+      },
+      onError: () => {
+        toast.error("Something went wrong. Please try again later.");
+        setIsSubmitted(false);
+      }
+    });
   };
 
   return (
@@ -68,14 +75,14 @@ export default function Contact() {
               
               <form onSubmit={handleSubmit}>
                 <div className="mb-4">
-                  <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+                  <label htmlFor="fullname" className="block text-gray-700 font-medium mb-2">
                     Full Name
                   </label>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
+                    id="fullname"
+                    name="fullname"
+                    value={formData.fullname}
                     onChange={handleChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                     required
@@ -114,13 +121,15 @@ export default function Contact() {
                 
                 <button
                   type="submit"
-                  className="bg-primary text-white font-medium py-2 px-6 rounded-md hover:bg-primary-dark transition duration-300"
+                  className="bg-red-600 text-white font-medium py-2 px-6 rounded-md hover:bg-primary-dark transition duration-300"
+                  disabled={contactUs.isPending}
                 >
-                  Submit
+                  {contactUs.isPending ? 'Submitting...' : 'Submit'}
                 </button>
               </form>
             </div>
             
+            {/* Rest of the component remains unchanged */}
             {/* Contact Information */}
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Get In Touch</h2>

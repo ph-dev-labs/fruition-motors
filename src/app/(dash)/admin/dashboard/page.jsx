@@ -13,7 +13,6 @@ import {
 } from "lucide-react";
 import axios from "../../../../libs/axios";
 import { Outfit } from "next/font/google";
-import getSymbolFromCurrency from "currency-symbol-map";
 import Navigation from "../components/Navigation";
 import StatsCard from "../components/statsCard";
 import CarList from "../components/carList";
@@ -41,17 +40,6 @@ function AdminDashboard() {
     },
   });
 
-  const {
-    data: featuredResponse,
-    isLoading: featuredCarsLoading,
-    error: featuredCarsError,
-  } = useQuery({
-    queryKey: ["featuredListing"],
-    queryFn: async () => {
-      const response = await axios.get("/carlisting");
-      return response.data.cars;
-    },
-  });
 
   const {
     data: categories,
@@ -70,7 +58,7 @@ function AdminDashboard() {
   const stats = useMemo(() => {
     const uniqueBrands = new Set(cars.map((car) => car.brand_name));
     const totalPrice = cars.reduce((acc, car) => acc + car.price, 0);
-    const averagePrice = cars.length ? Math.round(totalPrice / cars.length) : 0;
+   
 
     return [
       {
@@ -90,12 +78,6 @@ function AdminDashboard() {
         value: categories?.length || 0,
         icon: Settings,
         color: "info",
-      },
-      {
-        title: "Average Price",
-        value: `${getSymbolFromCurrency("NGN")}${averagePrice.toLocaleString()}`,
-        icon: DollarSign,
-        color: "warning",
       },
     ];
   }, [cars, categories]);
@@ -120,18 +102,10 @@ function AdminDashboard() {
     },
   });
 
-  const deleteFeaturedCarMutation = useMutation({
-    mutationFn: async (id) => {
-      const response = await axios.delete(`/deleteCar?id=${id}`);
-      return response.data;
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["cars"] });
-    },
-  });
+
 
   const isLoading = carsLoading || categoriesLoading;
-  const hasError = carsError || categoriesError || featuredCarsError;
+  const hasError = carsError || categoriesError ;
 
   if (hasError) {
     return (
@@ -233,7 +207,7 @@ function AdminDashboard() {
         </div>
 
         {/* Featured Listings Section */}
-        <div className="bg-white rounded-lg shadow-md overflow-hidden mt-8">
+        {/* <div className="bg-white rounded-lg shadow-md overflow-hidden mt-8">
           <div className="p-4 sm:p-6 border-b">
             <h2 className="text-xl font-semibold text-gray-900">Featured Listings</h2>
           </div>
@@ -259,7 +233,7 @@ function AdminDashboard() {
               </div>
             )}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
