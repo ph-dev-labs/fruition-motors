@@ -375,7 +375,7 @@ export default function CustomOrderPage() {
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h3 className="text-lg font-bold text-gray-900 mb-2">How long does the custom order process take?</h3>
               <p className="text-gray-700">
-              The timeline for custom orders can vary based on the vehicle's rarity and specifications. We'll provide a more precise timeline after reviewing your requirements.
+              {`The timeline for custom orders can vary based on the vehicle's rarity and specifications. We'll provide a more precise timeline after reviewing your requirements.`}
               </p>
             </div>
             
