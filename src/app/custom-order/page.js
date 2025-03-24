@@ -375,7 +375,7 @@ export default function CustomOrderPage() {
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h3 className="text-lg font-bold text-gray-900 mb-2">How long does the custom order process take?</h3>
               <p className="text-gray-700">
-                Depending on the rarity and specifications of the vehicle, our custom orders typically take 2-8 weeks. We&apos;ll provide you with a more specific timeline after reviewing your requirements.
+              The timeline for custom orders can vary based on the vehicle's rarity and specifications. We'll provide a more precise timeline after reviewing your requirements.
               </p>
             </div>
             
@@ -389,15 +389,14 @@ export default function CustomOrderPage() {
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h3 className="text-lg font-bold text-gray-900 mb-2">Can you source vehicles from overseas?</h3>
               <p className="text-gray-700">
-                Absolutely! Our global network allows us to source vehicles from Europe, Asia, and other international markets. We handle all import logistics and ensure the vehicle meets local regulations.
+              Absolutely! Our global network allows us to source vehicles from Europe, Asia, America, and other international markets. We handle all import logistics and ensure the vehicle meets local regulations.
               </p>
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h3 className="text-lg font-bold text-gray-900 mb-2">What if I&apos;m not satisfied with the vehicle?</h3>
               <p className="text-gray-700">
-                Customer satisfaction is our top priority. Before finalizing any purchase, we provide detailed information and images of the vehicle. If the vehicle doesn`&apos;`t meet your expectations upon delivery, we offer a satisfaction guarantee.
-              </p>
+              Customer satisfaction is our top priority. Before finalizing any purchase, we provide detailed information and images of the vehicle. If the vehicle does not meet your expectations upon delivery, we offer a satisfaction guarantee.              </p>
             </div>
           </div>
         </div>

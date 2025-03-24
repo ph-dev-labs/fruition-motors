@@ -584,14 +584,20 @@ export default function SellYourCarPage() {
             <div className="bg-gray-50 p-8 rounded-xl relative">
               <div className="text-red-600 text-5xl absolute -top-4 -left-2">{`"`}</div>
               <p className="text-gray-700 mb-6 pt-6">
-                The process was incredibly smooth. I got a fair price for my
-                Toyota Camry and the payment was processed quickly.
+                
+                Cla 250
+  
+                </p>
+              <p className="text-gray-700 mb-6 pt-6">
+              Sold my Mercedes in just 3 days. The offer was better than what I could get elsewhere. Highly recommended!
               </p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
                 <div>
-                  <h4 className="font-bold text-gray-900">John Doe</h4>
-                  <p className="text-sm text-gray-600">Lagos, Nigeria</p>
+                  <h4 className="font-bold text-gray-900">Chimaobi
+                  </h4>
+                  <p className="text-sm text-gray-600">Owerri, Nigeria 
+                  </p>
                 </div>
               </div>
             </div>
@@ -599,14 +605,22 @@ export default function SellYourCarPage() {
             <div className="bg-gray-50 p-8 rounded-xl relative">
               <div className="text-red-600 text-5xl absolute -top-4 -left-2">{`"`}</div>
               <p className="text-gray-700 mb-6 pt-6">
+                
+              Camry 2015
+
+              </p>
+              <p className="text-gray-700 mb-6 pt-6">
+
                 I was hesitant at first, but the team made me feel comfortable
                 throughout the entire selling process.
               </p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
                 <div>
-                  <h4 className="font-bold text-gray-900">Sarah Johnson</h4>
-                  <p className="text-sm text-gray-600">Abuja, Nigeria</p>
+                  <h4 className="font-bold text-gray-900">Princess Igwe 
+                  </h4>
+                  <p className="text-sm text-gray-600">Rivers, Nigeria 
+                  </p>
                 </div>
               </div>
             </div>
@@ -614,15 +628,22 @@ export default function SellYourCarPage() {
             <div className="bg-gray-50 p-8 rounded-xl relative">
               <div className="text-red-600 text-5xl absolute -top-4 -left-2">{`"`}</div>
               <p className="text-gray-700 mb-6 pt-6">
-                Sold my Mercedes in just 3 days. The offer was better than what
-                I could get elsewhere. Highly recommended!
+                
+              Honda Accord 
+
+  
+                </p>
+              <p className="text-gray-700 mb-6 pt-6">
+              The process was incredibly smooth. I got a fair price for my Honda and the payment was processed quickly.
+
               </p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
                 <div>
-                  <h4 className="font-bold text-gray-900">Michael Adebayo</h4>
+                  <h4 className="font-bold text-gray-900">Favour O
+                  </h4>
                   <p className="text-sm text-gray-600">
-                    Port Harcourt, Nigeria
+                  Bayelsa, Nigeria
                   </p>
                 </div>
               </div>
