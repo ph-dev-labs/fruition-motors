@@ -316,45 +316,55 @@ export default function CustomOrderPage() {
             <div className="bg-gray-50 p-6 rounded-xl shadow-sm">
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-300 flex items-center justify-center mr-4">
-                  <span className="text-xl font-bold text-gray-600">JD</span>
+                  <span className="text-xl font-bold text-gray-600">PA</span>
                 </div>
                 <div>
-                  <h4 className="font-bold">James Davis</h4>
-                  <p className="text-sm text-gray-600">Mercedes-Benz AMG</p>
+                  <h4 className="font-bold">Patrick Obinna</h4>
+                  <p className="text-sm text-gray-600">Lexus IS 350
+                  </p>
                 </div>
               </div>
               <p className="text-gray-700">
-                I was looking for a specific AMG model with unique specifications. The team found exactly what I wanted within two weeks. Incredible service!
+              {`I wanted an IS 250 after contacting Fruition on Jiji, but it wasn't available so I decided to order is 350 from with them. I'm still rocking my ride till date.`} 
+</p>
+<p className="text-sm text-gray-600">Lagos, Nigeria </p>
+
+            </div>
+            
+            <div className="bg-gray-50 p-6 rounded-xl shadow-sm">
+              <div className="flex items-center mb-4">
+                <div className="h-12 w-12 rounded-full bg-gray-300 flex items-center justify-center mr-4">
+                  <span className="text-xl font-bold text-gray-600">AA</span>
+                </div>
+                <div>
+                  <h4 className="font-bold">Anderson Amadi
+                  </h4>
+                  <p className="text-sm text-gray-600">Hyundai sonata</p>
+                </div>
+              </div>
+              <p className="text-gray-700">
+              I was searching for a specific Sonata model with unique specifications. The team quickly found exactly what I wanted. Incredible service!
+              </p>
+              <p className="text-sm text-gray-600">Port Harcourt, Nigeria 
               </p>
             </div>
             
             <div className="bg-gray-50 p-6 rounded-xl shadow-sm">
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-300 flex items-center justify-center mr-4">
-                  <span className="text-xl font-bold text-gray-600">SM</span>
+                  <span className="text-xl font-bold text-gray-600">SB</span>
                 </div>
                 <div>
-                  <h4 className="font-bold">Sarah Miller</h4>
-                  <p className="text-sm text-gray-600">Porsche 911</p>
+                  <h4 className="font-bold">Sarah Bamidele</h4>
+                  <p className="text-sm text-gray-600">Toyota Corolla 2019
+                  </p>
                 </div>
               </div>
               <p className="text-gray-700">
-                The custom order process was seamless. They kept me updated throughout and delivered a car that exceeded my expectations.
+              The custom order process was smooth. They kept me informed throughout and delivered a car that surpassed my expectations.
               </p>
-            </div>
-            
-            <div className="bg-gray-50 p-6 rounded-xl shadow-sm">
-              <div className="flex items-center mb-4">
-                <div className="h-12 w-12 rounded-full bg-gray-300 flex items-center justify-center mr-4">
-                  <span className="text-xl font-bold text-gray-600">RT</span>
-                </div>
-                <div>
-                  <h4 className="font-bold">Robert Thompson</h4>
-                  <p className="text-sm text-gray-600">Toyota Land Cruiser</p>
-                </div>
-              </div>
-              <p className="text-gray-700">
-              &apos; I needed a specific Land Cruiser configuration that wasn&apos;t available locally. Their global network found it quickly and the import process was handled perfectly.&apos;
+              <p className="text-sm text-gray-600">Rivers, Nigeria.
+              Port Harcourt, Nigeria 
               </p>
             </div>
           </div>
