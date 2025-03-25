@@ -9,7 +9,7 @@ export default function About() {
       {/* Hero Section */}
       <section className="relative h-80 bg-[#170a0aab]">
         <Image
-          src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2066&auto=format&fit=crop&ixlib=rb-4.0.3"
+          src="/about.JPG"
           alt="Fruition Motors Team"
           layout="fill"
           objectFit="cover"
@@ -55,7 +55,7 @@ export default function About() {
       </section>
       
       {/* Key Figures */}
-      <section className="py-16 bg-gray-50">
+      {/* <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900">Fruition Motors by the Numbers</h2>
@@ -88,7 +88,7 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       
       {/* Our Team */}
       {/* <section className="py-16 bg-white">

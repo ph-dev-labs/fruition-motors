@@ -271,7 +271,7 @@ export default function HomePage() {
       <section className="py-24 bg-gradient-to-r from-primary to-primary/80 relative overflow-hidden">
       <div className="absolute h-full w-full top-0 left-0 bg-[#32262662] inset-0  bg-opacity-50">
           <Image
-            src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2066&auto=format&fit=crop&ixlib=rb-4.0.3"
+            src="/featured.JPG"
             alt="Background pattern"
             fill
             className="object-cover"

@@ -11,16 +11,19 @@ const CarCard = ({ car }) => {
     setShowContactOptions(!showContactOptions);
   };
 
+  // Function to generate pre-populated message
+  const generateContactMessage = (type) => {
+    const message = encodeURIComponent(`Hello, I'm interested in the ${car.color || 'specified'} ${car.title} that I saw on your website. What's the price of the vehicle?`);
+    
+    if (type === 'sms') {
+      return `sms:${phoneNumber}?body=${message}`;
+    } else if (type === 'whatsapp') {
+      return `https://wa.me/+2348157083863?text=${message}`;
+    }
+  };
+
   return (
     <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-gray-100 relative">
-      {/* Premium Label - If applicable */}
-      {/* {car.premium && (
-        <div className="absolute top-4 left-4 z-20 bg-amber-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md flex items-center gap-1.5">
-          <FaStar className="text-xs" />
-          PREMIUM
-        </div>
-      )} */}
-      
       {/* Image Container with Enhanced Gradient Overlay */}
       <div className="relative h-64 overflow-hidden">
         <Image 
@@ -33,20 +36,15 @@ const CarCard = ({ car }) => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-40 hover:opacity-60 transition-opacity duration-300"></div>
         
-        {/* Category Badge - Enhanced */}
+        {/* Category Badge */}
         <div className="absolute top-4 right-4 bg-zinc-800 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-md backdrop-blur-sm bg-opacity-90 flex items-center gap-1.5 transition-all duration-300 hover:bg-zinc-700">
           <FaTag className="text-xs" />
           {car.category}
         </div>
-        
-        {/* Year Badge */}
-        {/* <div className="absolute bottom-4 left-4 bg-red-600 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-md backdrop-blur-sm bg-opacity-90">
-          {car.year}
-        </div> */}
       </div>
       
       <div className="p-6">
-        {/* Title and Brand - Reorganized */}
+        {/* Title and Brand */}
         <div className="flex items-start justify-between mb-3">
           <div>
             <h3 className="text-lg font-bold text-gray-800 truncate mb-1 w-full">{car.title}</h3>
@@ -54,17 +52,9 @@ const CarCard = ({ car }) => {
               {car.brand_name} <span className="text-red-600">{car.model}</span>
             </p>
           </div>
-          
-          {/* Conditional Price Display */}
-          {/* {car.price && (
-            <div className="bg-gray-50 px-3 py-1.5 rounded-lg text-right">
-              <p className="text-xs text-gray-500 line-through">{car.old_price && `$${car.old_price}`}</p>
-              <p className="text-base font-bold text-red-600">${car.price}</p>
-            </div>
-          )} */}
         </div>
         
-        {/* Specifications Grid - Enhanced */}
+        {/* Specifications Grid */}
         <div className="grid grid-cols-2 gap-y-3 gap-x-4 mb-6 bg-gray-50 p-4 rounded-xl">
           <div className="flex items-center text-sm text-gray-700">
             <div className="flex items-center justify-center bg-white shadow-sm rounded-full p-2 mr-3">
@@ -92,9 +82,9 @@ const CarCard = ({ car }) => {
           </div>
         </div>
         
-        {/* Button Group - Improved with nowrap */}
+        {/* Button Group */}
         <div className="grid grid-cols-2 gap-3 mb-3">
-          {/* Fancy Buy Button with nowrap */}
+          {/* Buy Now Button */}
           <button 
             onClick={toggleContactOptions}
             className="group flex items-center justify-center gap-2 bg-gradient-to-r from-red-600 to-red-500 text-white text-sm font-medium py-3 px-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg hover:from-red-500 hover:to-red-600 relative overflow-hidden whitespace-nowrap"
@@ -106,7 +96,7 @@ const CarCard = ({ car }) => {
             <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-red-600 to-red-400 transform scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100"></span>
           </button>
           
-          {/* View Details Button - with nowrap */}
+          {/* View Details Button */}
           <Link 
             href={`/cars/${car.id}`}
             className="flex items-center justify-center gap-1 bg-gray-100 text-gray-800 text-sm font-medium py-3 px-4 rounded-xl transition-all duration-300 hover:bg-gray-200 whitespace-nowrap"
@@ -115,7 +105,7 @@ const CarCard = ({ car }) => {
           </Link>
         </div>
         
-        {/* Contact Options - Enhanced */}
+        {/* Contact Options */}
         {showContactOptions && (
           <div className="mt-3 grid grid-cols-3 gap-3 bg-gray-50 p-3 rounded-xl">
             <a 
@@ -126,14 +116,14 @@ const CarCard = ({ car }) => {
               <span className="text-xs font-medium whitespace-nowrap">Call</span>
             </a>
             <a 
-              href={`sms:${phoneNumber}`}
+              href={generateContactMessage('sms')}
               className="flex flex-col items-center justify-center bg-green-500 text-white rounded-lg py-2 px-2 transition-all hover:bg-green-600 shadow-sm"
             >
               <FaComment className="mb-1 text-base" />
               <span className="text-xs font-medium whitespace-nowrap">Message</span>
             </a>
             <a 
-              href={`https://wa.me/+2348157083863`}
+              href={generateContactMessage('whatsapp')}
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center justify-center bg-green-600 text-white rounded-lg py-2 px-2 transition-all hover:bg-green-700 shadow-sm"

@@ -63,7 +63,7 @@ const CarDetails = ({ car }) => {
               <h1 className="text-3xl font-bold text-gray-900">{car.title}</h1>
               <span className="bg-primary text-white px-4 py-1 rounded-full text-sm font-bold">{car.category}</span>
             </div>
-            <p className="text-xl font-bold text-primary mt-2">{formatPrice(car.price)}</p>
+            {/* <p className="text-xl font-bold text-primary mt-2">{formatPrice(car.price)}</p> */}
             <p className="text-gray-600 mt-4">{car.description}</p>
           </div>
           
