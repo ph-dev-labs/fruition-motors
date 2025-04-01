@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 const CarCard = ({ car }) => {
   const [showContactOptions, setShowContactOptions] = useState(false);
-  const phoneNumber = "0810471769";
+  const phoneNumber = "08145479942";
   
   const toggleContactOptions = () => {
     setShowContactOptions(!showContactOptions);
@@ -18,7 +18,7 @@ const CarCard = ({ car }) => {
     if (type === 'sms') {
       return `sms:${phoneNumber}?body=${message}`;
     } else if (type === 'whatsapp') {
-      return `https://wa.me/+2348157083863?text=${message}`;
+      return `https://wa.me/+2348145479942?text=${message}`;
     }
   };
 
